@@ -1,0 +1,14 @@
+---
+title: "My Projects"
+format: 
+  html:
+    theme: cosmo
+    self-contained: true
+---
+
+## Welcome to My Projects
+
+Here you'll find links to various analyses and projects:
+
+- [Personal Stats Project](personal_stats/) - Tracking and analyzing personal data
+- More projects coming soon!
