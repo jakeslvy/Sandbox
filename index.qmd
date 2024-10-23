@@ -1,0 +1,48 @@
+---
+title: "My First Quarto Document"
+author: "Your Name"
+format: 
+  html:
+    theme: cosmo
+    code-fold: true
+editor: visual
+---
+
+## Introduction
+
+This is a sample Quarto document that demonstrates some basic features.
+
+```{r}
+#| label: setup
+#| include: false
+
+library(ggplot2)
+```
+
+## Sample Plot
+
+Here's a simple plot using built-in R data:
+
+```{r}
+#| label: scatter-plot
+#| fig-cap: "MPG vs. Weight for Different Car Types"
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point() +
+  labs(title = "Car Weight vs. MPG",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon",
+       color = "Cylinders") +
+  theme_minimal()
+```
+
+## Table Example
+
+Here's a simple table using R's built-in data:
+
+```{r}
+#| label: table
+#| tbl-cap: "First Few Rows of mtcars Dataset"
+
+head(mtcars[, 1:4])
+```
