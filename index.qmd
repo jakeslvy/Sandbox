@@ -5,6 +5,7 @@ format:
   html:
     theme: cosmo
     code-fold: true
+    self-contained: true
 editor: visual
 ---
 
@@ -26,6 +27,8 @@ Here's a simple plot using built-in R data:
 ```{r}
 #| label: scatter-plot
 #| fig-cap: "MPG vs. Weight for Different Car Types"
+#| fig-width: 8
+#| fig-height: 6
 
 ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
   geom_point() +
