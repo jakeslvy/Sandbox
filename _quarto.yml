@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - personal_stats/personal_stats.qmd
+  execute-dir: project
+
+format:
+  html:
+    theme: cosmo
+    self-contained: true
+    
+website:
+  title: "My Projects"
+  navbar:
+    left:
+      - href: index.html
+        text: Home
+      - href: personal_stats/personal_stats.html
+        text: Personal Stats

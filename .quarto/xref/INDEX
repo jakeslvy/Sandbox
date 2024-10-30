@@ -1,5 +1,11 @@
 {
   "testing_again.qmd": {
     "testing_again.html": "e060468e"
+  },
+  "personal_stats/personal_stats.qmd": {
+    "personal_stats.html": "b8dc262f"
+  },
+  "MN_Weather/mn_weather.ipynb": {
+    "mn_weather.html": "550ec2f2"
   }
 }

@@ -1,0 +1,23 @@
+---
+title: "Personal Stats"
+format: 
+  html:
+    theme: cosmo
+    self-contained: true
+jupyter: python3
+---
+
+## Introduction
+
+This is a sample Quarto document that demonstrates some basic features.
+
+```{python}
+# import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+```
+
+```{python}
+#

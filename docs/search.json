@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "personal_stats/personal_stats.html",
+    "href": "personal_stats/personal_stats.html",
+    "title": "Personal Stats",
+    "section": "",
+    "text": "This is a sample Quarto document that demonstrates some basic features."
+  },
+  {
+    "objectID": "personal_stats/personal_stats.html#introduction",
+    "href": "personal_stats/personal_stats.html#introduction",
+    "title": "Personal Stats",
+    "section": "",
+    "text": "This is a sample Quarto document that demonstrates some basic features."
+  },
+  {
+    "objectID": "personal_stats/personal_stats.html#sample-plot",
+    "href": "personal_stats/personal_stats.html#sample-plot",
+    "title": "Personal Stats",
+    "section": "Sample Plot",
+    "text": "Sample Plot\nHere’s a simple plot using built-in R data:\n\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point() +\n  labs(title = \"Car Weight vs. MPG\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\",\n       color = \"Cylinders\") +\n  theme_minimal()\n\n\n\n\nMPG vs. Weight for Different Car Types"
+  },
+  {
+    "objectID": "personal_stats/personal_stats.html#table-example",
+    "href": "personal_stats/personal_stats.html#table-example",
+    "title": "Personal Stats",
+    "section": "Table Example",
+    "text": "Table Example\nHere’s a simple table using R’s built-in data:\n\nhead(mtcars[, 1:4])\n\n                   mpg cyl disp  hp\nMazda RX4         21.0   6  160 110\nMazda RX4 Wag     21.0   6  160 110\nDatsun 710        22.8   4  108  93\nHornet 4 Drive    21.4   6  258 110\nHornet Sportabout 18.7   8  360 175\nValiant           18.1   6  225 105"
+  }
+]
