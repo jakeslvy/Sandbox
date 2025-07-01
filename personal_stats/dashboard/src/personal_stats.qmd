@@ -1,0 +1,385 @@
+---
+title: "Personal Stats"
+format: 
+  html:
+    theme: cosmo
+    self-contained: true
+    page-layout: full
+    fig-responsive: true
+jupyter: python3
+---
+
+## Introduction
+
+This tracks how my days are going. Am I performing how I'd like? How is my sleep going?
+
+```{python}
+#| echo: false
+#| include: false
+
+# Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from duckdb import query as qr
+
+# Import custom data preparation functions
+from src.data_cleaners import get_combined_data, get_sleep_data
+
+# Get and prepare all data
+habit_sleep_data = get_combined_data(
+    email="jake.selvey@gmail.com",
+    sheet_url="https://docs.google.com/spreadsheets/d/169r9jn66M-ij0Pj6eS7wV6q5jhE2vWUz5vhYCrcBLBA/edit?usp=sharing"
+)
+
+# Get sleep data separately for the sleep-specific chart
+sleep_data = get_sleep_data()
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| fig-responsive: true
+
+# 7 Day Personal Score Chart
+# Sort data by date and take the most recent 7 days
+last_seven_days = habit_sleep_data.sort_values(by='habit_date').tail(7)
+
+# Create a stacked bar chart
+fig, ax = plt.subplots(figsize=(10, 5))
+bar_width = 0.35
+index = np.arange(len(last_seven_days))
+
+# Create the stacked bars
+bar1 = ax.bar(index, last_seven_days['morning'], bar_width, label='Morning', color='#60a5fa')
+bar2 = ax.bar(index, last_seven_days['day'], bar_width, 
+              bottom=last_seven_days['morning'], label='Day', color='#34d399')
+bar3 = ax.bar(index, last_seven_days['evening'], bar_width,
+              bottom=last_seven_days['morning'] + last_seven_days['day'], 
+              label='Evening', color='#a78bfa')
+
+# Add value labels for each segment
+for i in range(len(last_seven_days)):
+    # Morning label
+    ax.text(i, last_seven_days['morning'].iloc[i]/2, 
+            f"{last_seven_days['morning'].iloc[i]:.1f}", 
+            ha='center', va='center', color='white')
+    
+    # Day label
+    ax.text(i, last_seven_days['morning'].iloc[i] + last_seven_days['day'].iloc[i]/2,
+            f"{last_seven_days['day'].iloc[i]:.1f}", 
+            ha='center', va='center', color='white')
+    
+    # Evening label
+    ax.text(i, last_seven_days['morning'].iloc[i] + last_seven_days['day'].iloc[i] + 
+            last_seven_days['evening'].iloc[i]/2,
+            f"{last_seven_days['evening'].iloc[i]:.1f}", 
+            ha='center', va='center', color='white')
+    
+    # Total score label on top
+    ax.text(i, last_seven_days['morning'].iloc[i] + last_seven_days['day'].iloc[i] + 
+            last_seven_days['evening'].iloc[i] + 0.2,
+            f"{last_seven_days['total_score'].iloc[i]:.1f}", 
+            ha='center', va='bottom', color='black', fontweight='bold')
+
+# Customize the plot
+ax.set_xlabel('Date')
+ax.set_ylabel('Scores')
+ax.set_title('Personal Scores - Last Seven Days')
+ax.set_xticks(index)
+
+# Create date labels with both date and day of week
+date_labels = [f"{d.strftime('%m/%d')}\n{d.strftime('%a')}" for d in last_seven_days['habit_date']]
+ax.set_xticklabels(date_labels)
+
+# Add legend with reversed handles and labels
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles[::-1], labels[::-1], loc='upper right', bbox_to_anchor=(0.98, 0.98))
+
+# Adjust layout to prevent label cutoff
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+```
+
+
+
+```{python}
+#| echo: false
+#| warning: false
+#| fig-responsive: true
+
+##########   SLEEP LAST SEVEN DAYS
+# Calculate rolling averages for all sleep data first and convert to hours
+sleep_data['rolling_sleep_time_3d'] = sleep_data['total_sleep_time'].rolling(window=3, min_periods=1).mean() / 60
+sleep_data['rolling_sleep_time_2d'] = sleep_data['total_sleep_time'].rolling(window=2, min_periods=1).mean() / 60
+
+# Then get last 7 days of data
+last_seven_sleep = sleep_data.sort_values(by='day_of_date').tail(7)
+
+# Convert out_of_bed_time to hours since midnight for plotting
+def time_to_decimal_hours(time_obj):
+    if pd.isna(time_obj):
+        return None
+    return time_obj.hour + time_obj.minute / 60
+
+wake_times = last_seven_sleep['out_of_bed_time'].apply(time_to_decimal_hours)
+
+# Create figure with two y-axes
+fig, ax1 = plt.subplots(figsize=(12, 6))
+ax2 = ax1.twinx()
+
+# Set bar width and positions
+bar_width = 0.35
+index = np.arange(len(last_seven_sleep))
+
+# Create the bars for sleep scores (left axis)
+bars = ax1.bar(index, last_seven_sleep['sleep_score'], bar_width, 
+               color='#60a5fa', alpha=0.7, label='Sleep Score')
+
+# Offset the dots for wake times to appear between the ticks
+offset_index = index + bar_width / 2
+
+# Create the line for wake times (right axis) with offset
+line = ax2.plot(offset_index, wake_times, color='#f472b6', 
+                marker='o', linewidth=2, markersize=8, 
+                label='Wake Time', zorder=5)
+
+# Add value labels on top of each bar
+for i in range(len(last_seven_sleep)):
+    if not pd.isna(last_seven_sleep['sleep_score'].iloc[i]):
+        # Format sleep score label
+        sleep_score = last_seven_sleep['sleep_score'].iloc[i]
+        ax1.text(i, sleep_score + 2,
+                f"{sleep_score:.0f}", 
+                ha='center', va='bottom', color='#1d4ed8', fontweight='bold')
+    
+    # Add sleep time labels with both rolling averages
+    if not pd.isna(last_seven_sleep['total_sleep_time'].iloc[i]):
+        total_sleep = last_seven_sleep['total_sleep_time'].iloc[i] / 60
+        rolling_sleep_3d = last_seven_sleep['rolling_sleep_time_3d'].iloc[i]
+        rolling_sleep_2d = last_seven_sleep['rolling_sleep_time_2d'].iloc[i]
+        ax1.text(i, sleep_score - 10,
+                f"Last Night: {total_sleep:.1f}h\n2-day avg: {rolling_sleep_2d:.1f}h\n3-day avg: {rolling_sleep_3d:.1f}h",
+                ha='center', va='top', color='#1d4ed8', fontsize=8)
+
+# Add wake time labels with offset
+for i, time in enumerate(wake_times):
+    if not pd.isna(time):
+        hours = int(time)
+        minutes = int((time - hours) * 60)
+        ax2.text(offset_index[i], time + 0.15, 
+                f"{hours:02d}:{minutes:02d}",
+                ha='center', va='bottom', color='#be185d', fontweight='bold')
+
+# Customize the left axis (sleep score)
+ax1.set_xlabel('Date')
+ax1.set_ylabel('Sleep Score', color='#1d4ed8')
+ax1.tick_params(axis='y', labelcolor='#1d4ed8')
+ax1.set_ylim(0, 100)
+ax1.grid(True, linestyle='--', alpha=0.3, axis='y')
+
+# Customize the right axis (wake time)
+ax2.set_ylabel('Wake Time', color='#be185d')
+ax2.tick_params(axis='y', labelcolor='#be185d')
+ax2.set_ylim(5, 10)
+y2_ticks = range(5, 11)
+ax2.set_yticks(y2_ticks)
+ax2.set_yticklabels([f"{int(h):02d}:00" for h in y2_ticks])
+
+# Set title and x-axis
+plt.title('Sleep Scores and Wake Times - Last Seven Days', pad=20)
+ax1.set_xticks(index)
+
+# Create date labels with both date and day of week
+date_labels = [f"{d.strftime('%m/%d')}\n{d.strftime('%a')}" for d in last_seven_sleep['day_of_date']]
+ax1.set_xticklabels(date_labels)
+
+# Combine legends
+lines1, labels1 = ax1.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax1.legend(lines1 + lines2, labels1 + labels2, 
+          loc='upper right', bbox_to_anchor=(1.15, 1.1))
+
+# Adjust layout to prevent label cutoff
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| fig-responsive: true
+
+##########         WEEKLY SLEEP SCORES      #########
+# Get complete days and calculate week starts
+complete_days = habit_sleep_data[habit_sleep_data[['morning', 'day', 'evening']].notna().all(axis=1)]
+complete_days['week_start'] = complete_days['habit_date'] - pd.to_timedelta(complete_days['day_of_week'], unit='D')
+
+# Calculate weekly averages for complete days only
+weekly_averages = complete_days.groupby('week_start').agg({
+    'morning': 'mean',
+    'day': 'mean', 
+    'evening': 'mean',
+    'total_score': 'mean',
+    'habit_date': 'count'  # Count of complete days per week
+}).round(1)
+
+weekly_averages = weekly_averages.sort_index()
+
+# Create plot
+fig, ax = plt.subplots(figsize=(12, 6))
+bar_width = 0.35
+index = np.arange(len(weekly_averages))
+
+# Create stacked bars
+bar1 = ax.bar(index, weekly_averages['morning'], bar_width, label='Morning', color='#60a5fa')
+bar2 = ax.bar(index, weekly_averages['day'], bar_width, 
+              bottom=weekly_averages['morning'], label='Day', color='#34d399')
+bar3 = ax.bar(index, weekly_averages['evening'], bar_width,
+              bottom=weekly_averages['morning'] + weekly_averages['day'], 
+              label='Evening', color='#a78bfa')
+
+# Add value labels for each segment
+for i in range(len(weekly_averages)):
+    # Morning label
+    if not pd.isna(weekly_averages['morning'].iloc[i]):
+        ax.text(i, weekly_averages['morning'].iloc[i]/2, 
+                f"{weekly_averages['morning'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Day label
+    if not pd.isna(weekly_averages['day'].iloc[i]):
+        ax.text(i, weekly_averages['morning'].iloc[i] + weekly_averages['day'].iloc[i]/2,
+                f"{weekly_averages['day'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Evening label
+    if not pd.isna(weekly_averages['evening'].iloc[i]):
+        ax.text(i, weekly_averages['morning'].iloc[i] + weekly_averages['day'].iloc[i] + 
+                weekly_averages['evening'].iloc[i]/2,
+                f"{weekly_averages['evening'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Total score label on top (only if all components present)
+    if not pd.isna(weekly_averages['total_score'].iloc[i]):
+        ax.text(i, weekly_averages['morning'].iloc[i] + weekly_averages['day'].iloc[i] + 
+                weekly_averages['evening'].iloc[i] + 0.2,
+                f"{weekly_averages['total_score'].iloc[i]:.1f}", 
+                ha='center', va='bottom', color='black', fontweight='bold')
+
+# Customize plot
+ax.set_xlabel('Week Starting')
+ax.set_ylabel('Average Scores')
+ax.set_title('Average Weekly Scores (Complete Days Only)')
+ax.set_xticks(index)
+
+# Date labels
+date_labels = [d.strftime('%m/%d') for d in weekly_averages.index]
+ax.set_xticklabels(date_labels, rotation=45, ha='right')
+
+# Add count of complete days per week
+days_text = "Complete days per week: " + ", ".join([f"{date_labels[i]}: {count}" 
+                                                  for i, count in enumerate(weekly_averages['habit_date'])])
+plt.figtext(0.5, -0.05, days_text, ha='center', va='center', fontsize=8)
+
+# Legend
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles[::-1], labels[::-1], loc='upper right', bbox_to_anchor=(0.98, 0.98))
+
+# Grid and layout
+ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+plt.subplots_adjust(bottom=0.2)
+
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| fig-responsive: true
+
+######    AVG SLEEP SCORES BY DAY OF WEEK   ############
+# Calculate daily averages, but only include rows where all components are present
+complete_days = habit_sleep_data[habit_sleep_data[['morning', 'day', 'evening']].notna().all(axis=1)]
+daily_averages = complete_days.groupby('day_of_week').agg({
+    'morning': 'mean',
+    'day': 'mean',
+    'evening': 'mean',
+    'total_score': 'mean'
+}).round(1)
+
+# Sort by day of week
+daily_averages = daily_averages.reindex(range(7))
+
+# Create figure and axis
+fig, ax = plt.subplots(figsize=(10, 5))
+bar_width = 0.35
+index = np.arange(len(daily_averages))
+
+# Create stacked bars
+bar1 = ax.bar(index, daily_averages['morning'], bar_width, label='Morning', color='#60a5fa')
+bar2 = ax.bar(index, daily_averages['day'], bar_width, 
+              bottom=daily_averages['morning'], label='Day', color='#34d399')
+bar3 = ax.bar(index, daily_averages['evening'], bar_width,
+              bottom=daily_averages['morning'] + daily_averages['day'], 
+              label='Evening', color='#a78bfa')
+
+# Add value labels for each segment
+for i in range(len(daily_averages)):
+    # Morning label
+    if not pd.isna(daily_averages['morning'].iloc[i]):
+        ax.text(i, daily_averages['morning'].iloc[i]/2, 
+                f"{daily_averages['morning'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Day label
+    if not pd.isna(daily_averages['day'].iloc[i]):
+        ax.text(i, daily_averages['morning'].iloc[i] + daily_averages['day'].iloc[i]/2,
+                f"{daily_averages['day'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Evening label
+    if not pd.isna(daily_averages['evening'].iloc[i]):
+        ax.text(i, daily_averages['morning'].iloc[i] + daily_averages['day'].iloc[i] + 
+                daily_averages['evening'].iloc[i]/2,
+                f"{daily_averages['evening'].iloc[i]:.1f}", 
+                ha='center', va='center', color='white')
+    
+    # Total score label on top (only if all components present)
+    if not pd.isna(daily_averages['total_score'].iloc[i]):
+        ax.text(i, daily_averages['morning'].iloc[i] + daily_averages['day'].iloc[i] + 
+                daily_averages['evening'].iloc[i] + 0.2,
+                f"{daily_averages['total_score'].iloc[i]:.1f}", 
+                ha='center', va='bottom', color='black', fontweight='bold')
+
+# Customize plot
+ax.set_xlabel('Day of Week')
+ax.set_ylabel('Average Scores')
+ax.set_title('Average Daily Scores by Day of Week')
+ax.set_xticks(index)
+
+# Create day labels
+day_labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+ax.set_xticklabels(day_labels)
+
+# Add count of complete days for each day of week
+day_counts = complete_days.groupby('day_of_week').size()
+counts_text = "Complete days per weekday: " + ", ".join([f"{day_labels[day]}: {count}" for day, count in day_counts.items()])
+plt.figtext(0.5, -0.05, counts_text, ha='center', va='center', fontsize=8)
+
+# Add legend
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles[::-1], labels[::-1], loc='upper right', bbox_to_anchor=(0.98, 0.98))
+
+# Add gridlines
+ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+
+# Adjust layout
+plt.subplots_adjust(bottom=0.2)
+
+plt.show()
+```

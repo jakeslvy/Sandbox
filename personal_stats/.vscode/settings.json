@@ -1,0 +1,18 @@
+{
+    "terminal.integrated.cwd": "C:\\Users\\JakeSelvey\\Documents\\GitHub\\Sandbox\\personal_stats",
+    "terminal.integrated.defaultLocation": "workspace",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell",
+            "args": [
+                "-NoLogo",
+                "-NoExit",
+                "/c",
+                "cd 'C:\\Users\\JakeSelvey\\Documents\\GitHub\\Sandbox\\personal_stats'"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "quarto.python.path": "C:\\Users\\JakeSelvey\\miniconda3\\python.exe"
+}

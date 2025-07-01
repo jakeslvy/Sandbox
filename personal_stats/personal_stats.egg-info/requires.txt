@@ -1,0 +1,8 @@
+pandas
+numpy
+duckdb
+python-dotenv
+matplotlib
+scikit-learn
+scipy
+gspread

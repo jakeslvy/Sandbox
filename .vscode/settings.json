@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.cwd": "C:\\Users\\JakeSelvey\\Documents\\GitHub\\Sandbox",
+    "terminal.integrated.defaultLocation": "workspace",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}"
+    ],
+    "quarto.python.path": "C:\\Users\\JakeSelvey\\miniconda3\\python.exe",
+    "cursorpyright.analysis.extraPaths": [
+        "${workspaceFolder}"
+    ]
+}
