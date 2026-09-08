@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+~$*
+.ipynb_checkpoints/
+
+# Archived FPI payloads. These are the only responses we archive, because ESPN
+# serves current ratings only and an unfetched week is unrecoverable. Large and
+# machine-local; the parsed CSVs in data/input/fpi/ are the shareable form.
+data/raw/

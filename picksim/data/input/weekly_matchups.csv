@@ -1,0 +1,273 @@
+Week,TeamA,TeamB
+Week 1,Dallas Cowboys,Philadelphia Eagles
+Week 1,Kansas City Chiefs,Los Angeles Chargers
+Week 1,Las Vegas Raiders,New England Patriots
+Week 1,Pittsburgh Steelers,New York Jets
+Week 1,Miami Dolphins,Indianapolis Colts
+Week 1,Arizona Cardinals,New Orleans Saints
+Week 1,New York Giants,Washington Commanders
+Week 1,Carolina Panthers,Jacksonville Jaguars
+Week 1,Cincinnati Bengals,Cleveland Browns
+Week 1,Tampa Bay Buccaneers,Atlanta Falcons
+Week 1,Tennessee Titans,Denver Broncos
+Week 1,San Francisco 49ers,Seattle Seahawks
+Week 1,Detroit Lions,Green Bay Packers
+Week 1,Houston Texans,Los Angeles Rams
+Week 1,Baltimore Ravens,Buffalo Bills
+Week 1,Minnesota Vikings,Chicago Bears
+Week 2,Washington Commanders,Green Bay Packers
+Week 2,Jacksonville Jaguars,Cincinnati Bengals
+Week 2,Buffalo Bills,New York Jets
+Week 2,New England Patriots,Miami Dolphins
+Week 2,Los Angeles Rams,Tennessee Titans
+Week 2,Cleveland Browns,Baltimore Ravens
+Week 2,San Francisco 49ers,New Orleans Saints
+Week 2,New York Giants,Dallas Cowboys
+Week 2,Seattle Seahawks,Pittsburgh Steelers
+Week 2,Chicago Bears,Detroit Lions
+Week 2,Denver Broncos,Indianapolis Colts
+Week 2,Carolina Panthers,Arizona Cardinals
+Week 2,Philadelphia Eagles,Kansas City Chiefs
+Week 2,Atlanta Falcons,Minnesota Vikings
+Week 2,Tampa Bay Buccaneers,Houston Texans
+Week 2,Los Angeles Chargers,Las Vegas Raiders
+Week 3,Miami Dolphins,Buffalo Bills
+Week 3,Pittsburgh Steelers,New England Patriots
+Week 3,Houston Texans,Jacksonville Jaguars
+Week 3,Indianapolis Colts,Tennessee Titans
+Week 3,Cincinnati Bengals,Minnesota Vikings
+Week 3,New York Jets,Tampa Bay Buccaneers
+Week 3,Green Bay Packers,Cleveland Browns
+Week 3,Las Vegas Raiders,Washington Commanders
+Week 3,Atlanta Falcons,Carolina Panthers
+Week 3,Los Angeles Rams,Philadelphia Eagles
+Week 3,New Orleans Saints,Seattle Seahawks
+Week 3,Denver Broncos,Los Angeles Chargers
+Week 3,Dallas Cowboys,Chicago Bears
+Week 3,Arizona Cardinals,San Francisco 49ers
+Week 3,Kansas City Chiefs,New York Giants
+Week 3,Detroit Lions,Baltimore Ravens
+Week 4,Seattle Seahawks,Arizona Cardinals
+Week 4,Minnesota Vikings,Pittsburgh Steelers
+Week 4,New Orleans Saints,Buffalo Bills
+Week 4,Washington Commanders,Atlanta Falcons
+Week 4,Los Angeles Chargers,New York Giants
+Week 4,Tennessee Titans,Houston Texans
+Week 4,Cleveland Browns,Detroit Lions
+Week 4,Carolina Panthers,New England Patriots
+Week 4,Philadelphia Eagles,Tampa Bay Buccaneers
+Week 4,Jacksonville Jaguars,San Francisco 49ers
+Week 4,Indianapolis Colts,Los Angeles Rams
+Week 4,Baltimore Ravens,Kansas City Chiefs
+Week 4,Chicago Bears,Las Vegas Raiders
+Week 4,Green Bay Packers,Dallas Cowboys
+Week 4,New York Jets,Miami Dolphins
+Week 4,Cincinnati Bengals,Denver Broncos
+Week 5,San Francisco 49ers,Los Angeles Rams
+Week 5,Minnesota Vikings,Cleveland Browns
+Week 5,New York Giants,New Orleans Saints
+Week 5,Denver Broncos,Philadelphia Eagles
+Week 5,Houston Texans,Baltimore Ravens
+Week 5,Dallas Cowboys,New York Jets
+Week 5,Las Vegas Raiders,Indianapolis Colts
+Week 5,Miami Dolphins,Carolina Panthers
+Week 5,Tennessee Titans,Arizona Cardinals
+Week 5,Tampa Bay Buccaneers,Seattle Seahawks
+Week 5,Washington Commanders,Los Angeles Chargers
+Week 5,Detroit Lions,Cincinnati Bengals
+Week 5,New England Patriots,Buffalo Bills
+Week 5,Kansas City Chiefs,Jacksonville Jaguars
+Week 6,Philadelphia Eagles,New York Giants
+Week 6,Denver Broncos,New York Jets
+Week 6,Cleveland Browns,Pittsburgh Steelers
+Week 6,Los Angeles Chargers,Miami Dolphins
+Week 6,San Francisco 49ers,Tampa Bay Buccaneers
+Week 6,Seattle Seahawks,Jacksonville Jaguars
+Week 6,Dallas Cowboys,Carolina Panthers
+Week 6,Los Angeles Rams,Baltimore Ravens
+Week 6,Arizona Cardinals,Indianapolis Colts
+Week 6,Tennessee Titans,Las Vegas Raiders
+Week 6,Cincinnati Bengals,Green Bay Packers
+Week 6,New England Patriots,New Orleans Saints
+Week 6,Detroit Lions,Kansas City Chiefs
+Week 6,Chicago Bears,Washington Commanders
+Week 6,Buffalo Bills,Atlanta Falcons
+Week 7,Pittsburgh Steelers,Cincinnati Bengals
+Week 7,Los Angeles Rams,Jacksonville Jaguars
+Week 7,New England Patriots,Tennessee Titans
+Week 7,Miami Dolphins,Cleveland Browns
+Week 7,Las Vegas Raiders,Kansas City Chiefs
+Week 7,Carolina Panthers,New York Jets
+Week 7,New Orleans Saints,Chicago Bears
+Week 7,Philadelphia Eagles,Minnesota Vikings
+Week 7,New York Giants,Denver Broncos
+Week 7,Indianapolis Colts,Los Angeles Chargers
+Week 7,Washington Commanders,Dallas Cowboys
+Week 7,Green Bay Packers,Arizona Cardinals
+Week 7,Atlanta Falcons,San Francisco 49ers
+Week 7,Tampa Bay Buccaneers,Detroit Lions
+Week 7,Houston Texans,Seattle Seahawks
+Week 8,Minnesota Vikings,Los Angeles Chargers
+Week 8,New York Jets,Cincinnati Bengals
+Week 8,Chicago Bears,Baltimore Ravens
+Week 8,Miami Dolphins,Atlanta Falcons
+Week 8,Cleveland Browns,New England Patriots
+Week 8,New York Giants,Philadelphia Eagles
+Week 8,Buffalo Bills,Carolina Panthers
+Week 8,San Francisco 49ers,Houston Texans
+Week 8,Tampa Bay Buccaneers,New Orleans Saints
+Week 8,Dallas Cowboys,Denver Broncos
+Week 8,Tennessee Titans,Indianapolis Colts
+Week 8,Green Bay Packers,Pittsburgh Steelers
+Week 8,Washington Commanders,Kansas City Chiefs
+Week 9,Baltimore Ravens,Miami Dolphins
+Week 9,Indianapolis Colts,Pittsburgh Steelers
+Week 9,Atlanta Falcons,New England Patriots
+Week 9,Chicago Bears,Cincinnati Bengals
+Week 9,Los Angeles Chargers,Tennessee Titans
+Week 9,San Francisco 49ers,New York Giants
+Week 9,Carolina Panthers,Green Bay Packers
+Week 9,Denver Broncos,Houston Texans
+Week 9,Minnesota Vikings,Detroit Lions
+Week 9,Jacksonville Jaguars,Las Vegas Raiders
+Week 9,New Orleans Saints,Los Angeles Rams
+Week 9,Kansas City Chiefs,Buffalo Bills
+Week 9,Seattle Seahawks,Washington Commanders
+Week 9,Arizona Cardinals,Dallas Cowboys
+Week 10,Las Vegas Raiders,Denver Broncos
+Week 10,Atlanta Falcons,Indianapolis Colts
+Week 10,Jacksonville Jaguars,Houston Texans
+Week 10,Buffalo Bills,Miami Dolphins
+Week 10,New England Patriots,Tampa Bay Buccaneers
+Week 10,Cleveland Browns,New York Jets
+Week 10,New York Giants,Chicago Bears
+Week 10,New Orleans Saints,Carolina Panthers
+Week 10,Baltimore Ravens,Minnesota Vikings
+Week 10,Arizona Cardinals,Seattle Seahawks
+Week 10,Los Angeles Rams,San Francisco 49ers
+Week 10,Detroit Lions,Washington Commanders
+Week 10,Pittsburgh Steelers,Los Angeles Chargers
+Week 10,Philadelphia Eagles,Green Bay Packers
+Week 11,New York Jets,New England Patriots
+Week 11,Washington Commanders,Miami Dolphins
+Week 11,Tampa Bay Buccaneers,Buffalo Bills
+Week 11,Los Angeles Chargers,Jacksonville Jaguars
+Week 11,Cincinnati Bengals,Pittsburgh Steelers
+Week 11,Carolina Panthers,Atlanta Falcons
+Week 11,Green Bay Packers,New York Giants
+Week 11,Chicago Bears,Minnesota Vikings
+Week 11,Houston Texans,Tennessee Titans
+Week 11,San Francisco 49ers,Arizona Cardinals
+Week 11,Seattle Seahawks,Los Angeles Rams
+Week 11,Kansas City Chiefs,Denver Broncos
+Week 11,Baltimore Ravens,Cleveland Browns
+Week 11,Detroit Lions,Philadelphia Eagles
+Week 11,Dallas Cowboys,Las Vegas Raiders
+Week 12,Buffalo Bills,Houston Texans
+Week 12,New England Patriots,Cincinnati Bengals
+Week 12,Pittsburgh Steelers,Chicago Bears
+Week 12,Indianapolis Colts,Kansas City Chiefs
+Week 12,New York Jets,Baltimore Ravens
+Week 12,New York Giants,Detroit Lions
+Week 12,Seattle Seahawks,Tennessee Titans
+Week 12,Minnesota Vikings,Green Bay Packers
+Week 12,Cleveland Browns,Las Vegas Raiders
+Week 12,Jacksonville Jaguars,Arizona Cardinals
+Week 12,Atlanta Falcons,New Orleans Saints
+Week 12,Philadelphia Eagles,Dallas Cowboys
+Week 12,Tampa Bay Buccaneers,Los Angeles Rams
+Week 12,Carolina Panthers,San Francisco 49ers
+Week 13,Green Bay Packers,Detroit Lions
+Week 13,Kansas City Chiefs,Dallas Cowboys
+Week 13,Cincinnati Bengals,Baltimore Ravens
+Week 13,Chicago Bears,Philadelphia Eagles
+Week 13,San Francisco 49ers,Cleveland Browns
+Week 13,Jacksonville Jaguars,Tennessee Titans
+Week 13,Houston Texans,Indianapolis Colts
+Week 13,Arizona Cardinals,Tampa Bay Buccaneers
+Week 13,New Orleans Saints,Miami Dolphins
+Week 13,Atlanta Falcons,New York Jets
+Week 13,Los Angeles Rams,Carolina Panthers
+Week 13,Minnesota Vikings,Seattle Seahawks
+Week 13,Buffalo Bills,Pittsburgh Steelers
+Week 13,Las Vegas Raiders,Los Angeles Chargers
+Week 13,Denver Broncos,Washington Commanders
+Week 13,New York Giants,New England Patriots
+Week 14,Dallas Cowboys,Detroit Lions
+Week 14,Indianapolis Colts,Jacksonville Jaguars
+Week 14,New Orleans Saints,Tampa Bay Buccaneers
+Week 14,Miami Dolphins,New York Jets
+Week 14,Pittsburgh Steelers,Baltimore Ravens
+Week 14,Seattle Seahawks,Atlanta Falcons
+Week 14,Tennessee Titans,Cleveland Browns
+Week 14,Washington Commanders,Minnesota Vikings
+Week 14,Chicago Bears,Green Bay Packers
+Week 14,Denver Broncos,Las Vegas Raiders
+Week 14,Los Angeles Rams,Arizona Cardinals
+Week 14,Cincinnati Bengals,Buffalo Bills
+Week 14,Houston Texans,Kansas City Chiefs
+Week 14,Philadelphia Eagles,Los Angeles Chargers
+Week 15,Atlanta Falcons,Tampa Bay Buccaneers
+Week 15,Los Angeles Chargers,Kansas City Chiefs
+Week 15,Buffalo Bills,New England Patriots
+Week 15,New York Jets,Jacksonville Jaguars
+Week 15,Baltimore Ravens,Cincinnati Bengals
+Week 15,Las Vegas Raiders,Philadelphia Eagles
+Week 15,Arizona Cardinals,Houston Texans
+Week 15,Washington Commanders,New York Giants
+Week 15,Cleveland Browns,Chicago Bears
+Week 15,Detroit Lions,Los Angeles Rams
+Week 15,Tennessee Titans,San Francisco 49ers
+Week 15,Carolina Panthers,New Orleans Saints
+Week 15,Green Bay Packers,Denver Broncos
+Week 15,Indianapolis Colts,Seattle Seahawks
+Week 15,Minnesota Vikings,Dallas Cowboys
+Week 15,Miami Dolphins,Pittsburgh Steelers
+Week 16,Los Angeles Rams,Seattle Seahawks
+Week 16,Green Bay Packers,Chicago Bears
+Week 16,Philadelphia Eagles,Washington Commanders
+Week 16,Kansas City Chiefs,Tennessee Titans
+Week 16,New York Jets,New Orleans Saints
+Week 16,New England Patriots,Baltimore Ravens
+Week 16,Buffalo Bills,Cleveland Browns
+Week 16,Tampa Bay Buccaneers,Carolina Panthers
+Week 16,Minnesota Vikings,New York Giants
+Week 16,Los Angeles Chargers,Dallas Cowboys
+Week 16,Atlanta Falcons,Arizona Cardinals
+Week 16,Jacksonville Jaguars,Denver Broncos
+Week 16,Pittsburgh Steelers,Detroit Lions
+Week 16,Las Vegas Raiders,Houston Texans
+Week 16,Cincinnati Bengals,Miami Dolphins
+Week 16,San Francisco 49ers,Indianapolis Colts
+Week 17,Dallas Cowboys,Washington Commanders
+Week 17,Detroit Lions,Minnesota Vikings
+Week 17,Denver Broncos,Kansas City Chiefs
+Week 17,New York Giants,Las Vegas Raiders
+Week 17,Houston Texans,Los Angeles Chargers
+Week 17,Arizona Cardinals,Cincinnati Bengals
+Week 17,Baltimore Ravens,Green Bay Packers
+Week 17,Seattle Seahawks,Carolina Panthers
+Week 17,New Orleans Saints,Tennessee Titans
+Week 17,Pittsburgh Steelers,Cleveland Browns
+Week 17,New England Patriots,New York Jets
+Week 17,Jacksonville Jaguars,Indianapolis Colts
+Week 17,Tampa Bay Buccaneers,Miami Dolphins
+Week 17,Philadelphia Eagles,Buffalo Bills
+Week 17,Chicago Bears,San Francisco 49ers
+Week 17,Los Angeles Rams,Atlanta Falcons
+Week 18,New York Jets,Buffalo Bills
+Week 18,Kansas City Chiefs,Las Vegas Raiders
+Week 18,Baltimore Ravens,Pittsburgh Steelers
+Week 18,Cleveland Browns,Cincinnati Bengals
+Week 18,Miami Dolphins,New England Patriots
+Week 18,Tennessee Titans,Jacksonville Jaguars
+Week 18,Los Angeles Chargers,Denver Broncos
+Week 18,Indianapolis Colts,Houston Texans
+Week 18,Detroit Lions,Chicago Bears
+Week 18,Green Bay Packers,Minnesota Vikings
+Week 18,New Orleans Saints,Atlanta Falcons
+Week 18,Seattle Seahawks,San Francisco 49ers
+Week 18,Washington Commanders,Philadelphia Eagles
+Week 18,Dallas Cowboys,New York Giants
+Week 18,Carolina Panthers,Tampa Bay Buccaneers
+Week 18,Arizona Cardinals,Los Angeles Rams
