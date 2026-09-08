@@ -134,7 +134,9 @@ def main() -> int:
             "they would be eliminated together."
         )
 
-    taken = {paths[e][week] for e in ENTRIES if week in paths[e]}
+    # Only the other Crazy entries matter here - Dustin is a different pool, so
+    # sharing a team with it costs nothing.
+    taken = {paths[e][week] for e in ("Crazy1", "Crazy2") if week in paths[e]}
     print("\nCrazy3 (your pick) - best available:")
     for team, prob, clash in manual_options(board, my_picks, week, taken):
         flag = "   <- Crazy1/2 already here" if clash else ""
